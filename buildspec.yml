@@ -32,6 +32,7 @@ artifacts:
     - java/webapp8/target/webapp8-0.0.1-SNAPSHOT.jar
     - java/webapp11/target/webapp11-0.0.1-SNAPSHOT.jar
   discard-paths: yes
+  name: webapp-0.0.1
 
 cache:
   paths:
