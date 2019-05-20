@@ -1,7 +1,4 @@
 version: 0.2
-env:
-  variables:
-    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
 phases:
   install:
     runtime-versions:
@@ -17,6 +14,9 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
+      - export JAVA_HOME="$JAVA_11_HOME"
+      - java -version
+      - export JAVA_HOME="$JAVA_8_HOME"
       - java -version
       - cd java/webapp8/
       - echo java versions are $(ls /usr/lib/jvm)
