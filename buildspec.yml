@@ -15,11 +15,9 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - export JAVA_HOME="$JAVA_8_HOME" && java -version
       - java -version
       - cd java/webapp8/
       - mvn install
-      - export JAVA_HOME="$JAVA_11_HOME" && java -version
       - cd ../webapp11/
       - mvn install
     finally:
