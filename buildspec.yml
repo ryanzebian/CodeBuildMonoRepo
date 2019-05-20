@@ -1,3 +1,4 @@
+# TODO(ryanz): aws s3 ls access denied... resolve that issue
 version: 0.2
 phases:
   install:
@@ -14,15 +15,11 @@ phases:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - export JAVA_HOME="$JAVA_11_HOME"
-      - java -version
-      - export JAVA_HOME="$JAVA_8_HOME"
+      - export JAVA_HOME="$JAVA_8_HOME" && java -version
       - java -version
       - cd java/webapp8/
-      - echo java versions are $(ls /usr/lib/jvm)
-      - echo JAVA_HOME $JAVA_HOME
-      - echo $(aws s3 ls)
       - mvn install
+      - export JAVA_HOME="$JAVA_11_HOME" && java -version
       - cd ../webapp11/
       - mvn install
     finally:
