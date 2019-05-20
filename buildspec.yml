@@ -1,4 +1,4 @@
-# TODO(ryanz): aws s3 ls access denied... resolve that issue
+#TODO(ryanz): make this an environment version 
 version: 0.2
 phases:
   install:
@@ -13,6 +13,7 @@ phases:
       - echo This always runs even if the update or install command fails 
   build:
     commands:
+      - git rev-parse HEAD > .gitinfo.txt
       - echo Entered the build phase...
       - echo Build started on `date`
       - export JAVA_HOME="$JAVA_8_HOME"
@@ -29,10 +30,11 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
+    - .gitinfo.txt
     - java/webapp8/target/webapp8-0.0.1-SNAPSHOT.jar
     - java/webapp11/target/webapp11-0.0.1-SNAPSHOT.jar
   discard-paths: yes
-  name: webapp-0.0.1
+  name: webapp-0.0.1 
 
 cache:
   paths:
