@@ -27,6 +27,12 @@ phases:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
+artifacts:
+  files:
+    - java/webapp8/target/webapp8-0.0.1-SNAPSHOT.jar
+    - java/webapp11/target/webapp11-0.0.1-SNAPSHOT.jar
+  discard-paths: yes
+
 cache:
   paths:
     - '/root/.m2/**/*'
